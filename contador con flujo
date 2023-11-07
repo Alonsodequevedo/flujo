@@ -1,0 +1,53 @@
+#include <stdbool.h>
+
+int main()
+{
+    char caracter;
+    int row_count = 0;
+    int comma_count = 0;
+    int columna_count = 0;
+    
+
+    FILE* file = fopen("line.txt", "r");
+
+    if (file == NULL)
+    {
+        perror("Error en la apertura del archivo");
+        return 1;
+    }
+
+    while ((caracter = fgetc(file)) != EOF)
+    {
+        if (caracter == '\n')
+        {
+            row_count++; 
+        }
+        
+       		if (caracter == ',')
+        {
+            comma_count++; 
+        }
+        
+        	if (caracter == ',')
+        {
+            for(columna_count=0;columna_count<9;columna_count++)
+            columna_count;
+        }
+        
+    }
+
+    
+    if (caracter != '\n')
+    {
+        row_count++;
+    }
+
+    printf("Filas: %d\n", row_count);
+    printf("Comas: %d\n", comma_count);
+    printf("Columnas: %d\n", columna_count);
+
+    fclose(file);
+    printf("\n\nTodo esta viento en popa...\n\n\n\n");
+
+    return 0;
+}
