@@ -1,0 +1,23 @@
+#include<stdio.h>
+
+int main()
+{
+	char caracter;
+	FILE*file=fopen("operaciones random.c","r");
+	
+	if (file==NULL)
+	{
+		perror("error en la apertura del archivo");
+		return 1;
+	}
+	
+	while(feof(file)==0)
+	{
+		caracter=fgetc(file);
+		printf("%c", caracter);
+	}
+	fclose(file);
+	printf("\n\nTodo esta viento en popa...\n\n\n\n");
+	
+	return 0;
+}
