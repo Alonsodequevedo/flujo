@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    FILE* archivo;
+    archivo = fopen("matriz.txt", "w");
+
+    if (archivo == NULL) {
+        perror("Error al abrir el archivo");
+        return 1;
+    }
+
+    int n;
+    printf("Ingrese el tamano de la matriz: ");
+    scanf("%d", &n);
+
+    int A[n][n];
+	int i, j;
+    srand(time(NULL));
+
+    printf("Matriz A:\n");
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++) {
+            A[i][j] = rand() % 2; 
+            printf("%d,", A[i][j]);
+            fprintf(archivo, "%d,", A[i][j]); 
+        }
+        printf("\n");
+        fprintf(archivo, "\n");
+    }
+
+    fclose(archivo);
+
+    printf("Matriz guardada en 'matriz.txt'\n");
+
+    return 0;
+}
